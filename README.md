@@ -10,6 +10,10 @@ Langchain Chatbot is a conversational chatbot powered by OpenAI's LLM (Large Lan
 2. **OpenAI Integration**: Utilizes OpenAI's LLM for generating contextual responses.
 3. **Dynamic Messaging**: Flexible message handling for responsive conversation flow.
 
+## Deployment on Hugging Face
+The Langchain Chatbot has been deployed on Hugging Face Spaces. You can interact with the chatbot directly through the Hugging Face interface by visiting the following link: 
+[Langchain Chatbot on Hugging Face](https://huggingface.co/spaces/prashver/langchain-qna-chatbot)
+
 ## Installation
 
 1. Clone the repository:
