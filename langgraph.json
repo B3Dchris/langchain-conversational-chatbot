@@ -1,6 +1,60 @@
 {
   "name": "LangChainChatbot",
   "description": "A conversational chatbot using LangChain and LangGraph",
+  "dependencies": [
+    "langchain",
+    "langgraph",
+    "openai",
+    "chromadb"
+  ],
+  "nodes": [
+    {
+      "id": "start",
+      "type": "input",
+      "description": "Receives user input and sends it to processing",
+      "next": "process_query"
+    },
+    {
+      "id": "process_query",
+      "type": "llm",
+      "model": "gpt-4",
+      "description": "Processes user input with LangChain",
+      "parameters": {
+        "temperature": 0.7,
+        "max_tokens": 500
+      },
+      "next": "store_memory"
+    },
+    {
+      "id": "store_memory",
+      "type": "memory",
+      "description": "Stores conversation history using a vector database",
+      "parameters": {
+        "storage": "chroma",
+        "retrieval": "similarity"
+      },
+      "next": "output_response"
+    },
+    {
+      "id": "output_response",
+      "type": "output",
+      "description": "Outputs chatbot's response to the user"
+    }
+  ],
+  "edges": [
+    {"from": "start", "to": "process_query"},
+    {"from": "process_query", "to": "store_memory"},
+    {"from": "store_memory", "to": "output_response"}
+  ]
+}{
+  "name": "LangChainChatbot",
+  "description": "A conversational chatbot using LangChain and LangGraph",
+  "dependencies": [
+    "langchain",
+    "langgraph",
+    "openai",
+    "chromadb"
+  ],
   "nodes": [
     {
       "id": "start",
